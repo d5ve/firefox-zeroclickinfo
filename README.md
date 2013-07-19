@@ -3,7 +3,9 @@ firefox-zeroclickinfo
 
 Forked from: https://github.com/duckduckgo/firefox-zeroclickinfo
 
-Edited to change the search query from &q=$SEARCHTERM to the localised (for me) ?kp=-1&kl=uk-en&kad=en_GB&q=
+Edited to change the awesomebar search query from `&q=$SEARCHTERM` to the localised (for me) `?kp=-1&kl=uk-en&kad=en_GB&q=$SEARCHTERM`
+
+This required editing `data/search.xml` and adding the new params to the XML.
 
 Build (on mac) with:
 
@@ -20,7 +22,7 @@ Build (on mac) with:
     $ cd firefox-zeroclickinfo
     $ cfx xpi
     
-Then install ~/src/firefox-zeroclickinfo/ddg_for_firefox.xpi in your browser.
+Then install `~/src/firefox-zeroclickinfo/ddg_for_firefox.xpi` in your browser.
 
 DuckDuckGo enhancements for Firefox.
 
