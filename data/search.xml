@@ -6,6 +6,9 @@
   <LongName>Search Plugin for DuckDuckGo (HTTPS version)</LongName> 
   <Image width="16" height="16">http://duckduckgo.com/favicon.ico</Image>
   <Url type="text/html" method="get" template="https://duckduckgo.com/">
+    <Param name="kp" value="-1"/>
+    <Param name="kl" value="uk-en"/>
+    <Param name="kad" value="en_GB"/>
     <Param name="q" value="{searchTerms}"/>  
   </Url>
   <Url type="application/x-suggestions+json" method="GET" template="https://duckduckgo.com/ac/">
