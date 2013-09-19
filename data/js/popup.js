@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-var lastQuery = '';
 //setTimeout(function(){
 //}, 300);
 
@@ -27,9 +26,11 @@ self.port.on('opened', function(options) {
 
   if (options[1] === true)
     document.getElementById('default_search').checked = true;
-  
-  if (options[3] === true)
-    document.getElementById('adv_meanings').checked = true;
+  else
+    document.getElementById('default_search').checked = false;
+
+//if (options[3] === true)
+//  document.getElementById('adv_meanings').checked = true;
 
   if (options[4] === true)
     document.getElementById('adv_zeroclick').checked = true;
@@ -38,7 +39,7 @@ self.port.on('opened', function(options) {
     document.getElementById('adv_toolbarbutton').checked = true;
 
 
-  document.getElementById('search_form_input_homepage').focus();
+  document.getElementById('search_form_input_homepage').select();
 
   // putting last searched value to the input
   if (options[5] != undefined && options[5] != '') {
@@ -123,7 +124,7 @@ self.port.on('opened', function(options) {
   
   document.getElementById('adv_ducky').onclick = ducky_check;
   document.getElementById('default_search').onclick = change_default;
-  document.getElementById('adv_meanings').onclick = meanings_check;
+//document.getElementById('adv_meanings').onclick = meanings_check;
   document.getElementById('adv_zeroclick').onclick = zeroclick_check;
   document.getElementById('adv_toolbarbutton').onclick = toolbarbutton_check;
 
@@ -170,6 +171,11 @@ self.port.on('opened', function(options) {
     self.port.emit('open-ddg', "http://duckduckgo.com/bang.html");
   }
 
+  document.getElementById('addons').onclick = function(){
+    self.port.emit('open-ddg', "about:addons");
+  }
+
+
 });
 
 
@@ -179,11 +185,6 @@ function search(){
   if (input == '')
       return false;
 
-  if (input === lastQuery)
-      return false;
-
-  lastQuery = input;
-
   
   self.port.emit('set-last_search', input);
   
@@ -192,9 +193,9 @@ function search(){
   }
 
   var special = '';
-  if(document.getElementById('adv_meanings').checked !== true) {
-    special = '&d=1'; 
-  }
+//if(document.getElementById('adv_meanings').checked !== true) {
+//  special = '&d=1'; 
+//}
 
   self.port.emit('open-ddg', "https://duckduckgo.com/?q="+encodeURIComponent(input)+special);
 
@@ -301,9 +302,9 @@ function ducky_check(){
   self.port.emit('ducky-swap', document.getElementById('adv_ducky').checked);
 }
 
-function meanings_check(){
-  self.port.emit('meanings-swap', document.getElementById('adv_ducky').checked);
-}
+////function meanings_check(){
+////  self.port.emit('meanings-swap', document.getElementById('adv_ducky').checked);
+////}
 
 function zeroclick_check(){
   self.port.emit('zeroclick-swap', document.getElementById('adv_zeroclick').checked);
@@ -318,7 +319,6 @@ function toolbarbutton_check(){
 }
 
 function search_input_clear() {
-  lastQuery = '';
   self.port.emit('set-last_search', '');
 
   document.getElementById('search_form_input_homepage').value = '';

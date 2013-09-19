@@ -28,6 +28,7 @@ html {
   height: auto;
   border: 0;
   color: #000000 !important;
+  font-size: 12px !important;
 }
 
 body {
@@ -96,7 +97,7 @@ body {
   border: 1px solid #C7C7C7;
   border-radius: 3px;
   padding: 5px 6px 5px 6px;
-  font-size: 12px;
+  font-size: 12px !important;
   box-shadow: inset 1px 1px #fff, 0px 1px #eee;
   margin: 5px;
   background: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#f5f5f5));
@@ -110,7 +111,7 @@ body {
 
 
 #advanced .link {
-  font-size: 12px;
+  font-size: 12px !important;
   margin: 5px;
   padding: 5px 10px 5px 5px;
 }
@@ -134,7 +135,7 @@ body {
 #advanced h2 {
   float: left;
   width: 100%;
-  font-size: 12px;
+  font-size: 12px !important;
   font-weight: bold;
   color: #858585;
   padding-left: 10px;
@@ -156,7 +157,7 @@ body {
 
 #advanced #left ul {
   padding-left: 10px;
-  font-size: 12px;
+  font-size: 12px !important;
 }
 
 #advanced #right {
@@ -175,6 +176,11 @@ body {
 
 #advanced #right ul.left {
   padding-left: 1px;
+  margin-top: -6px;
+}
+
+#advanced #right ul.right {
+  margin-top: -6px;
 }
 
 #search_wrapper_homepage {
@@ -253,16 +259,13 @@ ktWRIZgIcFYAAAAASUVORK5CYII=
           </label>
      </li>
       <li>
-        <input type="checkbox" id="adv_meanings">
-        <label for="adv_meanings">
-          Show meanings
-        </label>
-      </li>
-       <li>
       <input type="checkbox" id="adv_toolbarbutton">
       <label for="adv_toolbarbutton">
        Show toolbar button
       </label>
+     </li>
+     <li>
+      <a href="javascript:;" id="addons">More options</a>
      </li>
     </ul>
 
